@@ -1,0 +1,266 @@
+{
+  "mode": "mock",
+  "generated_at": "2026-10-22T02:16:29.103713+00:00",
+  "model": "local-fixture",
+  "workers": 3,
+  "case_count": 12,
+  "api_success_rate": 0.75,
+  "contract_pass_rate": 0.5833333333333334,
+  "latency_p50_ms": 74.756,
+  "latency_p95_ms": 176.008,
+  "latency_scope": "成功 API 调用的完整请求耗时，包含重试等待，不是首 Token 延迟",
+  "request_attempts": 14,
+  "known_total_tokens": 288,
+  "cases_without_usage": 3,
+  "elapsed_ms": 344.529,
+  "notice": "mock 使用程序预设响应验证接入与故障处理；格式和关键词检查不等于语义正确性或模型通用能力。",
+  "cases": [
+    {
+      "id": "profile",
+      "prompt": "返回 JSON 对象，包含字符串 name 和数组 skills。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string",
+          "skills": "array"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{\"name\":\"demo\",\"skills\":[\"Python\"]}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 74.756,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "labels",
+      "prompt": "返回 JSON 对象，labels 为包含 AI 与 Python 的数组。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "labels": "array"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{\"labels\":[\"AI\",\"Python\"]}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 75.515,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "number",
+      "prompt": "计算 2+2，以 JSON 对象返回数字字段 value。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "value": "number"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{\"value\":4}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 74.377,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "boolean",
+      "prompt": "返回 JSON 对象，ok 为布尔值 true。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "ok": "boolean"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{\"ok\":true}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 64.918,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "text",
+      "prompt": "用英文一句话介绍 Python。",
+      "check": {
+        "kind": "contains",
+        "words": [
+          "Python"
+        ]
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "Python is a programming language.",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 63.451,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "retry503",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 2,
+      "response_text": "{\"name\":\"demo\",\"skills\":[\"Python\"]}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 132.87,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "retry429",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 2,
+      "response_text": "{\"name\":\"demo\",\"skills\":[\"Python\"]}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 176.008,
+      "check_passed": true,
+      "check_reason": "ok"
+    },
+    {
+      "id": "invalid_json",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{invalid",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 67.907,
+      "check_passed": false,
+      "check_reason": "not_json"
+    },
+    {
+      "id": "missing_key",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": true,
+      "status": 200,
+      "error_code": null,
+      "attempts": 1,
+      "response_text": "{\"other\":1}",
+      "usage": {
+        "total_tokens": 32
+      },
+      "latency_ms": 78.417,
+      "check_passed": false,
+      "check_reason": "missing_field:name"
+    },
+    {
+      "id": "auth_failure",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": false,
+      "status": 401,
+      "error_code": "http_401",
+      "attempts": 1,
+      "response_text": "",
+      "usage": null,
+      "latency_ms": 78.444,
+      "check_passed": false,
+      "check_reason": "http_401"
+    },
+    {
+      "id": "bad_protocol",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": false,
+      "status": 200,
+      "error_code": "invalid_response",
+      "attempts": 1,
+      "response_text": "",
+      "usage": null,
+      "latency_ms": 57.065,
+      "check_passed": false,
+      "check_reason": "invalid_response"
+    },
+    {
+      "id": "empty",
+      "prompt": "返回 JSON 对象，包含字符串 name。",
+      "check": {
+        "kind": "json",
+        "fields": {
+          "name": "string"
+        }
+      },
+      "api_ok": false,
+      "status": 200,
+      "error_code": "invalid_response",
+      "attempts": 1,
+      "response_text": "",
+      "usage": null,
+      "latency_ms": 56.668,
+      "check_passed": false,
+      "check_reason": "invalid_response"
+    }
+  ]
+}

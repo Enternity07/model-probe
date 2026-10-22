@@ -1,0 +1,14 @@
+[
+  {"id":"profile","prompt":"返回 JSON 对象，包含字符串 name 和数组 skills。","check":{"kind":"json","fields":{"name":"string","skills":"array"}}},
+  {"id":"labels","prompt":"返回 JSON 对象，labels 为包含 AI 与 Python 的数组。","mock_behavior":"labels","check":{"kind":"json","fields":{"labels":"array"}}},
+  {"id":"number","prompt":"计算 2+2，以 JSON 对象返回数字字段 value。","mock_behavior":"number","check":{"kind":"json","fields":{"value":"number"}}},
+  {"id":"boolean","prompt":"返回 JSON 对象，ok 为布尔值 true。","mock_behavior":"boolean","check":{"kind":"json","fields":{"ok":"boolean"}}},
+  {"id":"text","prompt":"用英文一句话介绍 Python。","mock_behavior":"text","check":{"kind":"contains","words":["Python"]}},
+  {"id":"retry503","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"retry_once","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"retry429","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"rate_limit_once","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"invalid_json","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"invalid_json","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"missing_key","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"missing_key","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"auth_failure","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"auth_failure","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"bad_protocol","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"malformed_protocol","check":{"kind":"json","fields":{"name":"string"}}},
+  {"id":"empty","prompt":"返回 JSON 对象，包含字符串 name。","mock_behavior":"empty","check":{"kind":"json","fields":{"name":"string"}}}
+]
