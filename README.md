@@ -60,3 +60,7 @@ tests/test_probe.py         自动化测试
 协议参考：[DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/) 与 [错误码](https://api-docs.deepseek.com/quick_start/error_codes/)。
 
 本项目为 AI 辅助编程学习作品，代码和报告保留验证范围。请亲自复现、修改并记录自己的实现。许可证见 `LICENSE`。
+
+## 产品方案
+
+[产品需求、功能取舍与验收说明](docs/PRODUCT.md)补充了用户场景、核心流程、验收标准和待验证指标。用户访谈、试用与效果数据尚未采集。
